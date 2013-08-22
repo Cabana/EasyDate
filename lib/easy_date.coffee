@@ -1,33 +1,34 @@
 class @EasyDate
   constructor: (args...) ->
-    @date = ''
+    date = this._constructDate args
+    @date = new Date date.year, date.month, date.day
 
+  _constructDate: (args) ->
     if args.length > 1
       day   = args[2]
-      month = args[1]
+      month = args[1] - 1
       year  = args[0]
-
-      @date = new Date year, month, day
     else
       day   = args[0].split(/(\d{2})/)[1]
-      month = args[0].split(/(\d{2})/)[3]
+      month = parseInt(args[0].split(/(\d{2})/)[3]) - 1
       year  = args[0].split(/(\d{2})/)[5]
 
-      yearIn19s = "19#{year}"
-      yearIn20s = "20#{year}"
+      yearIn20s = parseInt "20#{year}"
+      yearIn19s = parseInt "19#{year}"
+      currentYear = new Date().getFullYear()
 
-      tmp_date = new EasyDate yearIn19s, month, day
+      if currentYear - yearIn19s > 100
+        year = yearIn20s
+      else
+        year = yearIn19s
 
-      unless tmp_date.yearsAgo() < 100
-        tmp_date = new EasyDate yearIn20s, month, day
-
-      @date = new Date tmp_date.year(), tmp_date.month(), tmp_date.day()
+    { year: year, month: month, day: day }
 
   year: ->
     @date.getFullYear()
 
   month: ->
-    @date.getMonth()
+    @date.getMonth() + 1
 
   day: ->
     @date.getDate()

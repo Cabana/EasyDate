@@ -11,6 +11,12 @@ describe 'EasyDate', ->
       date = new EasyDate 2000, 10, 15
       expect(date.month()).toEqual 10
 
+      date = new EasyDate 2000, 12, 15
+      expect(date.month()).toEqual 12
+
+      date = new EasyDate 2000, 1, 15
+      expect(date.month()).toEqual 1
+
   describe '#day', ->
     it 'returns the day of the date', ->
       date = new EasyDate 2000, 10, 15
