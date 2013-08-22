@@ -29,7 +29,12 @@ date.yearsUntil() // => -13
 new EasyDate(2000, 4, 35)
 new EasyDate('350400')
 ```
-alksdjfl
+
+## Building
+Run `ruby build.rb` from the root of the project. Make sure to run `bundle install` beforehand.
+
 ## Running the test suite
 
-Use [karma](http://karma-runner.github.io/).
+1. Clone down the repo.
+2. Install dependencies with `bundle install`.
+3. Use [karma](http://karma-runner.github.io/).
