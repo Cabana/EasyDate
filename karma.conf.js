@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Wed Aug 21 2013 13:54:11 GMT+0200 (CEST)
+// Generated on Thu Aug 22 2013 11:13:46 GMT+0200 (CEST)
 
 module.exports = function(config) {
   config.set({
@@ -14,6 +14,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'vendor/split.js',
       'lib/*.coffee',
       'spec/*_spec.coffee'
     ],
@@ -55,7 +56,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'Firefox', 'Safari', 'Opera'],
 
 
     // If browser does not capture in given timeout [ms], kill it

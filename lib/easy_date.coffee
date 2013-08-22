@@ -9,12 +9,12 @@ class @EasyDate
       month = args[1] - 1
       year  = args[0]
     else
-      day   = args[0].split(/(\d{2})/)[1]
-      month = parseInt(args[0].split(/(\d{2})/)[3]) - 1
-      year  = args[0].split(/(\d{2})/)[5]
+      day   = split(args[0], /(\d{2})/)[1]
+      month = parseInt(split(args[0], /(\d{2})/)[3], 10) - 1
+      year  = split(args[0], /(\d{2})/)[5]
 
-      yearIn20s = parseInt "20#{year}"
-      yearIn19s = parseInt "19#{year}"
+      yearIn20s = parseInt "20#{year}", 10
+      yearIn19s = parseInt "19#{year}", 10
       currentYear = new Date().getFullYear()
 
       if currentYear - yearIn19s > 100
