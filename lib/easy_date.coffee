@@ -29,6 +29,7 @@ class @EasyDate
 
   dateValid = (year, month, day) ->
     month = month - 1
+    month = 0 if month < 0
 
     date = new Date year, month, day
 
