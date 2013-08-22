@@ -1,6 +1,13 @@
 describe 'EasyDate', ->
   date = new Object
 
+  it 'throws an error if the date is invalid', ->
+    expect(-> new EasyDate 2000, 4, 32).toThrow 'Invalid date'
+    expect(-> new EasyDate '320400').toThrow 'Invalid date'
+
+  it 'does not throw and error if the date is valid', ->
+    expect(-> new EasyDate 2000, 4, 14).not.toThrow 'Invalid date'
+
   describe '#year', ->
     it 'returns the year of the date', ->
       date = new EasyDate 2000, 10, 15

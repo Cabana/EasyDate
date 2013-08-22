@@ -1,6 +1,7 @@
 class @EasyDate
   constructor: (args...) ->
     date = this._constructDate args
+
     @date = new Date date.year, date.month, date.day
 
   _constructDate: (args) ->
@@ -9,7 +10,7 @@ class @EasyDate
       month = args[1] - 1
       year  = args[0]
     else
-      day   = split(args[0], /(\d{2})/)[1]
+      day   = parseInt split(args[0], /(\d{2})/)[1], 10
       month = parseInt(split(args[0], /(\d{2})/)[3], 10) - 1
       year  = split(args[0], /(\d{2})/)[5]
 
@@ -22,7 +23,19 @@ class @EasyDate
       else
         year = yearIn19s
 
+    throw new Error 'Invalid date' unless dateValid year, month, day
+
     { year: year, month: month, day: day }
+
+  dateValid = (year, month, day) ->
+    month = month - 1
+
+    date = new Date year, month, day
+
+    if date.getFullYear() is year and date.getMonth() is month and date.getDate() is day
+      true
+    else
+      false
 
   year: ->
     @date.getFullYear()

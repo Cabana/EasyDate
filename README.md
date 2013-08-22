@@ -16,7 +16,7 @@ var date = new EasyDate('060890');
 // Assume that we have this date
 var date = new EasyDate(2000, 4, 9);
 
-// We can call the following methods on it
+// We can call the following instance methods on it
 date.year()       // => 2000
 date.month()      // => 4
 date.day()        // => 9
@@ -24,8 +24,12 @@ date.isFuture()   // => false
 date.isPast()     // => true
 date.yearsAgo()   // => 13
 date.yearsUntil() // => -13
-```
 
+// If you pass in an invalid date an 'Invalid date' error will be thrown
+new EasyDate(2000, 4, 35)
+new EasyDate('350400')
+```
+alksdjfl
 ## Running the test suite
 
 Use [karma](http://karma-runner.github.io/).
