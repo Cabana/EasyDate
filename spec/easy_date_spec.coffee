@@ -75,3 +75,29 @@ describe 'EasyDate', ->
       expect(date.year()).toEqual 2001
       expect(date.month()).toEqual 9
       expect(date.day()).toEqual 1
+
+  describe 'instantiating with a value coming form a date input field', ->
+    it 'works with years in the 19s', ->
+      date = new EasyDate '1990-08-06'
+      expect(date.year()).toEqual 1990
+      expect(date.month()).toEqual 8
+      expect(date.day()).toEqual 6
+
+    it 'works with years in the 20s', ->
+      date = new EasyDate '2001-09-01'
+      expect(date.year()).toEqual 2001
+      expect(date.month()).toEqual 9
+      expect(date.day()).toEqual 1
+
+  describe 'instantiating with a value where the year comes last', ->
+    it 'works with years in the 19s', ->
+      date = new EasyDate '06-08-1990'
+      expect(date.year()).toEqual 1990
+      expect(date.month()).toEqual 8
+      expect(date.day()).toEqual 6
+
+    it 'works with years in the 20s', ->
+      date = new EasyDate '01-09-2001'
+      expect(date.year()).toEqual 2001
+      expect(date.month()).toEqual 9
+      expect(date.day()).toEqual 1

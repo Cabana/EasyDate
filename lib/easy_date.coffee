@@ -10,9 +10,24 @@ class @EasyDate
       month = args[1] - 1
       year  = args[0]
     else
-      day   = parseInt split(args[0], /(\d{2})/)[1], 10
-      month = parseInt(split(args[0], /(\d{2})/)[3], 10) - 1
-      year  = split(args[0], /(\d{2})/)[5]
+      # parse the different formats that a date can have
+      # yymmdd
+      # yyyy-mm-dd
+      # dd-mm-yyyy
+      if /^\d{6}$/.test args[0]
+        year  = split(args[0], /(\d{2})/)[5]
+        month = parseInt(split(args[0], /(\d{2})/)[3], 10) - 1
+        day   = parseInt split(args[0], /(\d{2})/)[1], 10
+
+      else if /^\d{4}-\d{2}-\d{2}$/.test args[0]
+        year  = split(args[0], /-/)[0].replace /^\d\d/, ''
+        month = parseInt(split(args[0], /-/)[1], 10) - 1
+        day   = parseInt split(args[0], /-/)[2], 10
+
+      else if /^\d{2}-\d{2}-\d{4}$/.test args[0]
+        year  = split(args[0], /-/)[2].replace /^\d\d/, ''
+        month = parseInt(split(args[0], /-/)[1], 10) - 1
+        day   = parseInt split(args[0], /-/)[0], 10
 
       yearIn20s = parseInt "20#{year}", 10
       yearIn19s = parseInt "19#{year}", 10

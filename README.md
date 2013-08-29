@@ -25,9 +25,14 @@ date.isPast()     // => true
 date.yearsAgo()   // => 13
 date.yearsUntil() // => -13
 
+// Different date formats are supported
+new EasyDate(2000, 4, 25)  // yyyy, m, d
+new EasyDate('060890')     // ddmmyy
+new EasyDate('1990-08-06') // yyyy-mm-dd
+new EasyDate('06-08-1990') // dd-mm-yyyy
+
 // If you pass in an invalid date an 'Invalid date' error will be thrown
 new EasyDate(2000, 4, 35)
-new EasyDate('350400')
 ```
 
 ## Building
