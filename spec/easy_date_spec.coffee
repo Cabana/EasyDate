@@ -89,6 +89,12 @@ describe 'EasyDate', ->
       expect(date.month()).toEqual 9
       expect(date.day()).toEqual 1
 
+    it 'foo', ->
+      date = new EasyDate '2013-09-11'
+      expect(date.year()).toEqual 2013
+      expect(date.month()).toEqual 9
+      expect(date.day()).toEqual 11
+
   describe 'instantiating with a value where the year comes last', ->
     it 'works with years in the 19s', ->
       date = new EasyDate '06-08-1990'
