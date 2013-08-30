@@ -2,6 +2,7 @@ describe 'EasyDate', ->
   date = new Object
 
   it 'throws an error if the date is invalid', ->
+    expect(-> new EasyDate '310290').toThrow 'Invalid date'
     expect(-> new EasyDate 2000, 4, 32).toThrow 'Invalid date'
     expect(-> new EasyDate '320400').toThrow 'Invalid date'
     expect(-> new EasyDate '').toThrow 'Invalid date'
