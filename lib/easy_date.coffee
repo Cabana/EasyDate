@@ -75,7 +75,7 @@ class @EasyDate
     yearIn19s = parseInt "19#{year}", 10
     currentYear = new Date().getFullYear()
 
-    if currentYear - yearIn19s > 100
+    if currentYear - yearIn19s >= 100
       yearIn20s
     else
       yearIn19s

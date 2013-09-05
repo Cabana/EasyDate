@@ -5,6 +5,7 @@ describe 'EasyDate', ->
     expect(-> new EasyDate '310290').toThrow 'Invalid date'
     expect(-> new EasyDate 2000, 4, 32).toThrow 'Invalid date'
     expect(-> new EasyDate '320400').toThrow 'Invalid date'
+    expect(-> new EasyDate '300279').toThrow 'Invalid date'
     expect(-> new EasyDate '').toThrow 'Invalid date'
     expect(-> new EasyDate()).toThrow 'Invalid date'
 
@@ -76,6 +77,11 @@ describe 'EasyDate', ->
       expect(date.year()).toEqual 2001
       expect(date.month()).toEqual 9
       expect(date.day()).toEqual 1
+
+      date = new EasyDate '090913'
+      expect(date.year()).toEqual 2013
+      expect(date.month()).toEqual 9
+      expect(date.day()).toEqual 9
 
   describe 'instantiating with a value coming form a date input field', ->
     it 'works with years in the 19s', ->
