@@ -33,7 +33,7 @@ describe 'EasyDate', ->
     it 'returns true if the value is in the future', ->
       date = new EasyDate 2100, 10, 15
       expect(date.isFuture()).toEqual true
-      date = new EasyDate 2013, 10, 15
+      date = new EasyDate 2020, 10, 15
       expect(date.isFuture()).toEqual true
 
     it 'returns false if the value is in the past', ->
